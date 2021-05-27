@@ -18,6 +18,7 @@ public class Boton extends Elemento{
 	@Override
 	public void pintar() {
 		// TODO Auto-generated method stub
+		this.app.noStroke();
 		this.app.fill(255);
 		this.app.rect(x, y, sizeX, sizeY);
 		this.app.fill(0);
@@ -31,6 +32,9 @@ public class Boton extends Elemento{
 				cant++;
 			} else {
 				cant--;
+				if(cant>=0) {
+					cant=0;
+				}
 			}
 		}
 		return cant;

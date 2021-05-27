@@ -24,7 +24,7 @@ public class Adiciones extends Pantalla{
 		// TODO Auto-generated constructor stub
 		btnSumar = new ArrayList<Boton>();
 		btnRestar = new ArrayList<Boton>();
-		agregar = new Boton(app,150,550,100,50, "Agregar",0, true);
+		agregar = new Boton(app,140,556,100,50, "Agregar",0, true);
 		cant1 = 0;
 		cant2 = 0;
 		cant3 = 0;
@@ -33,11 +33,11 @@ public class Adiciones extends Pantalla{
 		cant6 = 0;
 		
 		for (int i = 0; i < 5; i++) {
-			btnSumar.add( new Boton(app, 200, (i*100)+100, 25, 25, "+", 0, true));
+			btnSumar.add( new Boton(app, 250, (i*100)+100, 25, 25, "+", 0, true));
 		}
 		
 		for (int i = 0; i < 5; i++) {
-			btnRestar.add( new Boton(app, 250, (i*100)+100, 25, 25, "-", 0, false));
+			btnRestar.add( new Boton(app, 300, (i*100)+100, 25, 25, "-", 0, false));
 		}
 		
 	}
@@ -63,7 +63,7 @@ public class Adiciones extends Pantalla{
 			this.app.text(cant4, 225+10, 410);
 			this.app.text(cant5, 225+10, 510);
 			
-			agregar.pintar();
+			//agregar.pintar();
 		
 	}
 
