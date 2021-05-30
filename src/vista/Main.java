@@ -32,12 +32,12 @@ public class Main extends PApplet{
 		pantallaAdiciones = new Adiciones(this, 0, 0, 375, 667, loadImage("./img/Adiciones.png"));
 		pantallaOrden = new Orden(this, 0, 0, 375, 667,  loadImage("./img/Pago.jpeg"), null, null);
 		pantallaCheck = new Check(this, 0, 0, 375, 667, loadImage("./img/Orden_realizada.png"));
-		pantallaHISTORIAL = new historial();
+		pantallaHISTORIA = new historial(this, 0, 0, 375, 667,  loadImage("./img/historial.jpg"),null,null);
 		adiciones = new ArrayList<Producto>();
 	}
 	
 	public void draw() {
-		
+System.out.println(mouseX);
 		if(pantalla==0) {
 			pantallaMenu.pintar();
 		}
@@ -53,6 +53,9 @@ public class Main extends PApplet{
 		if (pantalla == 4) {
 			pantallaOrden.setPantalla(pantalla);
 			pantallaOrden.pintar();
+		}
+		if(pantalla == 5) {
+			pantallaHISTORIA.pintar();
 		}
 		
 	}
@@ -109,7 +112,18 @@ public class Main extends PApplet{
 		}	
 		
 		
-		
+		if (mouseX > 200 && mouseX <  250 && mouseY > 610 && mouseY < 660) {
+			pantalla = 5;
+			
+		}
+		if ((mouseX > 120 && mouseX <  190 && mouseY > 610 && mouseY < 660)&&counter==true) {
+			pantalla = 4;
+			
+		}
+		if ((mouseX > 45 && mouseX <  110 && mouseY > 610 && mouseY < 660)&&counter==true) {
+			pantalla = 0;
+			
+		}
 		
 	}
 	

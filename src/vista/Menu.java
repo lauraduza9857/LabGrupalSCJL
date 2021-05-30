@@ -7,11 +7,13 @@ import processing.core.PImage;
 
 public class Menu extends Pantalla{
 	
-	ArrayList<Elemento> pizzas;
+	public ArrayList<Elemento> pizzas;
 	private int pizzaSeleccionada;
+
 
 	public Menu(PApplet app, int x, int y, int sizeX, int sizeY, PImage img) {
 		super(app, x, y, sizeX, sizeY, img);
+	
 		// TODO Auto-generated constructor stub
 		pizzas = new ArrayList<Elemento>();
 		for (int i = 0; i < 3; i++) {
@@ -44,6 +46,7 @@ public class Menu extends Pantalla{
 		// TODO Auto-generated method stub
 		for (int i = 0; i < pizzas.size(); i++) {
 			if(pizzas.get(i).isSeleccionado()) {
+		
 				pizzaSeleccionada = pizzas.indexOf(pizzas.get(i));
 			}
 			
@@ -55,5 +58,7 @@ public class Menu extends Pantalla{
 	public int getPizzaSeleccionada() {
 		return pizzaSeleccionada+1;
 	}
+	
+
 
 }

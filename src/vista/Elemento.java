@@ -4,14 +4,15 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public abstract class Elemento {
-	
+
 	protected PApplet app;
 	protected int x;
 	protected int y;
 	protected int sizeX;
 	protected int sizeY;
 	protected PImage img;
-	
+
+
 	public Elemento(PApplet app, int x, int y, int sizeX, int sizeY, PImage img) {
 		super();
 		this.app = app;
@@ -20,8 +21,9 @@ public abstract class Elemento {
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		this.img = img;
+
 	}
-	
+
 	public Elemento(PApplet app, int x, int y, int sizeX, int sizeY) {
 		super();
 		this.app = app;
@@ -29,35 +31,33 @@ public abstract class Elemento {
 		this.y = y;
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
+
 	}
 
-	
 	public abstract void pintar();
-	
+
 	public void pintarDefecto() {
-		
+
 		this.app.noStroke();
 		this.app.strokeWeight(2);
 		this.app.tint(255, 128);
-		this.app.fill(93,193,185, (float) 0.1);
-		
-		if(isSeleccionado()) {
-			this.app.tint(0, 153, 204); 
-		} 
-		
-		this.app.rect(x,y,sizeX,sizeY);
+		this.app.fill(93, 193, 185, (float) 0.1);
+
+		if (isSeleccionado()) {
+			this.app.tint(0, 153, 204);
+		}
+
+		this.app.rect(x, y, sizeX, sizeY);
 	}
-	
+
 	public boolean isSeleccionado() {
 		boolean sobre = false;
-		
-		if(this.app.mouseX > this.x &&
-		   this.app.mouseX < this.x+this.sizeX &&
-		   this.app.mouseY > this.y && 
-		   this.app.mouseY < this.y+this.sizeY) {
+
+		if (this.app.mouseX > this.x && this.app.mouseX < this.x + this.sizeX && this.app.mouseY > this.y
+				&& this.app.mouseY < this.y + this.sizeY) {
 			sobre = true;
 		}
-		
+
 		return sobre;
 	}
 
@@ -108,9 +108,6 @@ public abstract class Elemento {
 	public void setImg(PImage img) {
 		this.img = img;
 	}
-	
-	
-	
-	
+
 
 }

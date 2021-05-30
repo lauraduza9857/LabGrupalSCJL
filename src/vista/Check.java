@@ -26,6 +26,7 @@ public class Check extends Pantalla{
 		if (this.app.mouseX > 59 && this.app.mouseX <  172 && this.app.mouseY > 568 && this.app.mouseY < 599) {
 			counter= true;
 			pantalla = 4;
+
 			
 			
 		} 
