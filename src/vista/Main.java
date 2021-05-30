@@ -46,6 +46,10 @@ public class Main extends PApplet{
 		if(pantalla == 3) {
 			pantallaCheck.pintar();
 		}
+		if (pantalla == 4) {
+			pantallaOrden.setPantalla(pantalla);
+			pantallaOrden.pintar();
+		}
 		
 	}
 	
@@ -88,15 +92,16 @@ public class Main extends PApplet{
 		}
 		if (pantalla == 2) {
 			pantallaOrden.click();
-			
 			pantalla = pantallaOrden.getPantalla();					
 		}
 		
 		if (pantalla == 3) {
 			pantallaCheck.click();
-			System.out.println(mouseX + ", "+ mouseY);
+			pantalla = pantallaCheck.getPantalla();		
+		}	
+		if (pantalla == 4) {
+			System.out.println(mouseX + ", " + mouseY);
 		}
-		
 		
 		
 		

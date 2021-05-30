@@ -27,6 +27,7 @@ public class Orden extends Pantalla{
 	public void pintar() {
 		// TODO Auto-generated method stub
 		this.app.image(img, x, y, sizeX, sizeY);
+		this.app.fill(0);
 		this.app.textSize(14);
 		this.app.text(this.producto.getNombre(), 100, 100);
 		this.app.text(this.producto.getPrecio(), 200, 100);
@@ -38,6 +39,11 @@ public class Orden extends Pantalla{
 		}
 		
 		this.app.text(this.finalPrecio + ".000", 240,460);
+		
+		if (pantalla == 4) {
+			this.app.fill(255);
+			this.app.rect(80, 528, 180, 30);
+		}
 	}
 
 	@Override
