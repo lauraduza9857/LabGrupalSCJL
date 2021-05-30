@@ -11,6 +11,8 @@ public class Orden extends Pantalla{
 	private Producto producto;
 	private ArrayList<Producto> adiciones;
 	private int finalPrecio;
+	
+	private int pantalla = 2;
 
 	public Orden(PApplet app, int x, int y, int sizeX, int sizeY, PImage img, Producto producto, ArrayList<Producto> adiciones) {
 		super(app, x, y, sizeX, sizeY, img);
@@ -40,10 +42,23 @@ public class Orden extends Pantalla{
 
 	@Override
 	public void click() {
-		// TODO Auto-generated method stub
+		if (this.app.mouseX > 121 && this.app.mouseX <  251 && this.app.mouseY > 530 && this.app.mouseY < 555) {
+			pantalla = 3;
+			
+		}
 		
 	}
 	
+	public int getPantalla() {
+		return pantalla;
+	}
+
+
+	public void setPantalla(int pantalla) {
+		this.pantalla = pantalla;
+	}
+
+
 	public void finalPrecio() {
 		int precioAdiciones = 0;
 		for (Producto adicion : adiciones) {
