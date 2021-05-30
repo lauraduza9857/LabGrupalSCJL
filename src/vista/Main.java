@@ -36,6 +36,7 @@ public class Main extends PApplet{
 	}
 	
 	public void draw() {
+		
 		if(pantalla==0) {
 			pantallaMenu.pintar();
 		}
@@ -91,11 +92,11 @@ public class Main extends PApplet{
 				pantallaOrden.finalPrecio();
 				pantalla = 2;
 			}
-		}
+		} else
 		if (pantalla == 2) {
 			pantallaOrden.click();
 			pantalla = pantallaOrden.getPantalla();					
-		}
+		}else
 		
 		if (pantalla == 3) {
 			pantallaCheck.click();
@@ -105,9 +106,7 @@ public class Main extends PApplet{
 				pantallaOrden.counter();
 			}
 		}	
-		if (pantalla == 4) {
-			
-		}
+		
 		
 		
 		
