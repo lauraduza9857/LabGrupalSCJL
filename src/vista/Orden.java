@@ -57,7 +57,7 @@ public class Orden extends Pantalla{
 				()->{
 					for (int i = 0; i < 1800000; i++) {
 						try {
-							Thread.sleep(1000);
+							Thread.sleep(2000);
 							
 							if(seg == 00){
 								min -=1;
