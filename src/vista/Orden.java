@@ -43,6 +43,17 @@ public class Orden extends Pantalla{
 		if (pantalla == 4) {
 			this.app.fill(255);
 			this.app.rect(80, 528, 180, 30);
+			new Thread (
+					()->{
+						for (int i = 0; i < 200; i++) {
+							try {
+								Thread.sleep(75);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+					});
 		}
 	}
 
