@@ -9,7 +9,7 @@ import processing.core.PImage;
 public class Orden extends Pantalla{
 
 	private Producto producto;
-	private int min = 30;
+	private int min = 2;
 	private int seg = 00;
 	private ArrayList<Producto> adiciones;
 	private int finalPrecio;
@@ -33,12 +33,12 @@ public class Orden extends Pantalla{
 		this.app.fill(0);
 		this.app.textSize(14);
 		this.app.text(this.producto.getNombre(), 100, 100);
-		this.app.text(this.producto.getPrecio(), 200, 100);
-		this.app.text(this.producto.getCantidad(), 240,100);
+		this.app.text(this.producto.getPrecio()+".000", 240, 100);
+		this.app.text(this.producto.getCantidad(), 300,100);
 		for (Producto adicion : adiciones) {
-			this.app.text(adicion.getNombre(), 100, 120 +(adiciones.indexOf(adicion)*20));
-			this.app.text(adicion.getPrecio(), 200, 120+(adiciones.indexOf(adicion)*20));
-			this.app.text(adicion.getCantidad(), 240,120 +(adiciones.indexOf(adicion)*20));
+			this.app.text(adicion.getNombre(), 100, 140 +(adiciones.indexOf(adicion)*40));
+			this.app.text(adicion.getPrecio()+".000", 240, 140+(adiciones.indexOf(adicion)*40));
+			this.app.text(adicion.getCantidad(), 300,140 +(adiciones.indexOf(adicion)*40));
 		}
 		
 		this.app.text(this.finalPrecio + ".000", 240,460);
@@ -48,7 +48,11 @@ public class Orden extends Pantalla{
 			this.app.rect(80, 528, 180, 30);
 			
 			this.app.fill(0);
+			if(min!=00&&seg!=00) {
 			this.app.text(min+" : "+seg,180,30);
+			}else {
+				this.app.text("su pedido ha llegado",180,30);	
+			}
 		}
 	}
 	
@@ -57,7 +61,7 @@ public class Orden extends Pantalla{
 				()->{
 					for (int i = 0; i < 1800000; i++) {
 						try {
-							Thread.sleep(2000);
+							Thread.sleep(600);
 							
 							if(seg == 00){
 								min -=1;
@@ -65,7 +69,7 @@ public class Orden extends Pantalla{
 							}		
 							seg -= 1;
 							
-							if(min==00) {
+							if(min==00&&seg==00) {
 								return;
 							}
 							
@@ -100,9 +104,10 @@ public class Orden extends Pantalla{
 	public void finalPrecio() {
 		int precioAdiciones = 0;
 		for (Producto adicion : adiciones) {
-			precioAdiciones = precioAdiciones+=adicion.getPrecio();
+			precioAdiciones = precioAdiciones+=adicion.getPrecio()*adicion.getCantidad();
 		}
 		finalPrecio = precioAdiciones + producto.getPrecio();
+	
 	}
 	
 	public Producto getProducto() {

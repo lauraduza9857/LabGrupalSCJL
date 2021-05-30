@@ -1,7 +1,6 @@
 package vista;
 
 import java.util.ArrayList;
-
 import modelo.Producto;
 import processing.core.PApplet;
 
@@ -19,6 +18,7 @@ public class Main extends PApplet{
 	static ArrayList<Producto> adiciones;
 	Orden pantallaOrden;
 	int pantalla;
+	historial pantallaHISTORIA;
 	
 	boolean counter = false;
 	
@@ -32,6 +32,7 @@ public class Main extends PApplet{
 		pantallaAdiciones = new Adiciones(this, 0, 0, 375, 667, loadImage("./img/Adiciones.png"));
 		pantallaOrden = new Orden(this, 0, 0, 375, 667,  loadImage("./img/Pago.jpeg"), null, null);
 		pantallaCheck = new Check(this, 0, 0, 375, 667, loadImage("./img/Orden_realizada.png"));
+		pantallaHISTORIAL = new historial();
 		adiciones = new ArrayList<Producto>();
 	}
 	
@@ -73,7 +74,7 @@ public class Main extends PApplet{
 				break;
 				
 			case 3:
-				producto = new Producto("Pizza cl�sica", 12, 1,1);
+				producto = new Producto("Pizza clasica", 12, 1,1);
 				pantallaOrden.setProducto(producto);
 				pantalla = 1;
 				break;

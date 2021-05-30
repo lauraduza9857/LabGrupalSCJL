@@ -36,7 +36,7 @@ public abstract class Elemento {
 	
 	public void pintarDefecto() {
 		
-		this.app.stroke(0);
+		this.app.noStroke();
 		this.app.strokeWeight(2);
 		this.app.tint(255, 128);
 		this.app.fill(93,193,185, (float) 0.1);

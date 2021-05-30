@@ -32,9 +32,7 @@ public class Boton extends Elemento{
 				cant++;
 			} else {
 				cant--;
-				if(cant>=0) {
-					cant=0;
-				}
+
 			}
 		}
 		return cant;
