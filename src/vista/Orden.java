@@ -9,10 +9,13 @@ import processing.core.PImage;
 public class Orden extends Pantalla{
 
 	private Producto producto;
+	private int min = 30;
+	private int seg = 00;
 	private ArrayList<Producto> adiciones;
 	private int finalPrecio;
 	
 	private int pantalla = 2;
+	
 
 	public Orden(PApplet app, int x, int y, int sizeX, int sizeY, PImage img, Producto producto, ArrayList<Producto> adiciones) {
 		super(app, x, y, sizeX, sizeY, img);
@@ -48,12 +51,26 @@ public class Orden extends Pantalla{
 						for (int i = 0; i < 200; i++) {
 							try {
 								Thread.sleep(75);
+								
+								if(seg == 00){
+									min -=1;
+									seg = 60;
+								}		
+								seg -= 1;
+								
+								if(min==00) {
+									return;
+								}
+								
+								
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 						}
-					});
+					}).start();
+			this.app.fill(0);
+			this.app.text(min+" : "+seg,180,30);
 		}
 	}
 
