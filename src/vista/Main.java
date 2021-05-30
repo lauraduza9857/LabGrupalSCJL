@@ -11,6 +11,7 @@ public class Main extends PApplet{
 		PApplet.main(Main.class.getName());
 	}
 		
+	Registrar regis;
 	Menu pantallaMenu;
 	Check pantallaCheck;
 	Adiciones pantallaAdiciones;
@@ -27,7 +28,8 @@ public class Main extends PApplet{
 	}
 	
 	public void setup() {
-		pantalla = 0;
+		pantalla = 6;
+		regis=new Registrar(this,0, 0, 375, 667, loadImage("./img/REGISTRARSE.png"));
 		pantallaMenu = new Menu(this, 0, 0, 375, 667, loadImage("./img/Menu.png"));
 		pantallaAdiciones = new Adiciones(this, 0, 0, 375, 667, loadImage("./img/Adiciones.png"));
 		pantallaOrden = new Orden(this, 0, 0, 375, 667,  loadImage("./img/Pago.jpeg"), null, null);
@@ -39,23 +41,33 @@ public class Main extends PApplet{
 	public void draw() {
 System.out.println(mouseX);
 		if(pantalla==0) {
+			regis.hideP5();
 			pantallaMenu.pintar();
 		}
 		if(pantalla==1) {
+			regis.hideP5();
 			pantallaAdiciones.pintar();
 		}
 		if(pantalla==2) {
+			regis.hideP5();
 			pantallaOrden.pintar();
 		}
 		if(pantalla == 3) {
+			regis.hideP5();
 			pantallaCheck.pintar();
 		}
 		if (pantalla == 4) {
+			regis.hideP5();
 			pantallaOrden.setPantalla(pantalla);
 			pantallaOrden.pintar();
 		}
 		if(pantalla == 5) {
+			regis.hideP5();
 			pantallaHISTORIA.pintar();
+		}
+		if(pantalla == 6) {
+			regis.mostrarP5();
+			regis.pintar();
 		}
 		
 	}
