@@ -7,6 +7,7 @@ public class Check extends Pantalla{
 	
 
 	private int pantalla = 3;
+	boolean counter = false;
 	
 	public Check(PApplet app, int x, int y, int sizeX, int sizeY, PImage img) {
 		super(app, x, y, sizeX, sizeY, img);
@@ -23,7 +24,9 @@ public class Check extends Pantalla{
 	public void click() {
 		
 		if (this.app.mouseX > 59 && this.app.mouseX <  172 && this.app.mouseY > 568 && this.app.mouseY < 599) {
+			counter= true;
 			pantalla = 4;
+			
 			
 		} 
 		
@@ -40,4 +43,13 @@ public class Check extends Pantalla{
 	public void setPantalla(int pantalla) {
 		this.pantalla = pantalla;
 	}
+
+	public boolean isCounter() {
+		return counter;
+	}
+
+	public void setCounter(boolean counter) {
+		this.counter = counter;
+	}
+	
 }

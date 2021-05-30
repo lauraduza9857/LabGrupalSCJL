@@ -20,6 +20,8 @@ public class Main extends PApplet{
 	Orden pantallaOrden;
 	int pantalla;
 	
+	boolean counter = false;
+	
 	public void settings() {
 		size(375, 667);
 	}
@@ -97,10 +99,14 @@ public class Main extends PApplet{
 		
 		if (pantalla == 3) {
 			pantallaCheck.click();
-			pantalla = pantallaCheck.getPantalla();		
+			pantalla = pantallaCheck.getPantalla();
+			counter = true;
+			if (counter) {
+				pantallaOrden.counter();
+			}
 		}	
 		if (pantalla == 4) {
-			System.out.println(mouseX + ", " + mouseY);
+			
 		}
 		
 		

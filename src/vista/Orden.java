@@ -46,32 +46,36 @@ public class Orden extends Pantalla{
 		if (pantalla == 4) {
 			this.app.fill(255);
 			this.app.rect(80, 528, 180, 30);
-			new Thread (
-					()->{
-						for (int i = 0; i < 200; i++) {
-							try {
-								Thread.sleep(75);
-								
-								if(seg == 00){
-									min -=1;
-									seg = 60;
-								}		
-								seg -= 1;
-								
-								if(min==00) {
-									return;
-								}
-								
-								
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						}
-					}).start();
+			
 			this.app.fill(0);
 			this.app.text(min+" : "+seg,180,30);
 		}
+	}
+	
+	public void counter() {
+		new Thread (
+				()->{
+					for (int i = 0; i < 1800000; i++) {
+						try {
+							Thread.sleep(1000);
+							
+							if(seg == 00){
+								min -=1;
+								seg = 60;
+							}		
+							seg -= 1;
+							
+							if(min==00) {
+								return;
+							}
+							
+							
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}).start();
 	}
 
 	@Override
