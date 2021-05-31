@@ -1,8 +1,7 @@
 package vista;
 
 import java.util.ArrayList;
-
-
+import java.util.LinkedList;
 
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -11,13 +10,14 @@ public class Check extends Pantalla{
 	
 
 	private int pantalla = 3;
+	private int id = 0;
 	boolean counter = false;
-	private ArrayList<Orden> hist;
+	private LinkedList<histo> hist;
 	
 	public Check(PApplet app, int x, int y, int sizeX, int sizeY, PImage img) {
 		super(app, x, y, sizeX, sizeY, img);
 		// TODO Auto-generated constructor stub
-		hist = new ArrayList<Orden>();
+		hist = new LinkedList<histo>();
 	}
 
 	@Override
@@ -38,6 +38,8 @@ public class Check extends Pantalla{
 		
 		if (this.app.mouseX > 201 && this.app.mouseX <  315 && this.app.mouseY > 568 && this.app.mouseY < 599) {
 			pantalla = 0;
+			id++;
+			hist.add(new histo(app, 100, 200, id));
 		}
 		
 	}

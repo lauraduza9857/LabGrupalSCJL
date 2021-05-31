@@ -1,8 +1,8 @@
 package vista;
 
 
-import java.util.ArrayList;
 
+import java.util.LinkedList;
 
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -11,11 +11,12 @@ import processing.core.PImage;
 
 public class historial extends Pantalla {
 	private int pantalla = 2;
-	ArrayList<Orden>c;
+	private LinkedList<histo> hist;
+
 	
 	public historial(PApplet app, int x, int y, int sizeX, int sizeY, PImage img) {		
 	super(app, x, y, sizeX, sizeY, img);
-		c = new ArrayList<Orden>();
+	hist = new LinkedList<histo>();
 	}
 
 
@@ -23,6 +24,9 @@ public class historial extends Pantalla {
 	@Override
 	public void pintar() {
 		this.app.image(img, x, y, sizeX, sizeY);
+		for (int i = 0; i < LinkedList.size(); i++) {
+			
+		}
 
 
 	}

@@ -4,7 +4,7 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PShapeSVG.Text;
 
-public abstract class histo {
+public class histo {
 
 	protected PApplet app;
 	protected int x;
@@ -27,7 +27,8 @@ public abstract class histo {
 
 	
 
-	public abstract void pintar();
+	public void pintar() {
+	}
 
 	public void pintarDefecto(int precio, int cantidad) {
 
