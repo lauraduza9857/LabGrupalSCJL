@@ -2,7 +2,7 @@ package vista;
 
 public class Usuario {
 	
-	private String nombre, apellido, ciudad, direccion, email, contraseÃ±a;
+	private String nombre, apellido, ciudad, direccion, email, contraseña;
 	private int pos;
 
 	public int getPos() {
@@ -13,7 +13,7 @@ public class Usuario {
 		this.pos = pos;
 	}
 
-	public Usuario(String nombre, String apellido, String ciudad, String direccion, String email, String contraseÃ±a, int pos) {
+	public Usuario(String nombre, String apellido, String ciudad, String direccion, String email, String contraseña, int pos) {
 		super();
 		this.pos = pos;
 		this.nombre = nombre;
@@ -21,7 +21,7 @@ public class Usuario {
 		this.ciudad = ciudad;
 		this.direccion = direccion;
 		this.email = email;
-		this.contraseÃ±a = contraseÃ±a;
+		this.contraseña = contraseña;
 	}
 
 	public String getNombre() {
@@ -64,12 +64,12 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public String getContraseÃ±a() {
-		return contraseÃ±a;
+	public String getContraseña() {
+		return contraseña;
 	}
 
-	public void setContraseÃ±a(String contraseÃ±a) {
-		this.contraseÃ±a = contraseÃ±a;
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
 	}
 	
 	

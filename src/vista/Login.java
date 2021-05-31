@@ -39,7 +39,7 @@ public class Login extends Pantalla{
 
 		if (this.app.mouseX > 189 && this.app.mouseX <  257 && this.app.mouseY > 541 && this.app.mouseY < 580) {
 			for (int i = 0; i < usuarios.size(); i++) {
-				if(usuarios.get(i).getEmail().equals(email) || usuarios.get(i).getContraseÃ±a().equals(contr)) {
+				if(usuarios.get(i).getEmail().equals(email) || usuarios.get(i).getContraseña().equals(contr)) {
 					new Thread(
 							()->{
 

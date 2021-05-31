@@ -74,10 +74,10 @@ public class Registrar extends Pantalla{
 		String ciudad =p5.get(Textfield.class, "Ciudad").getText();
 		String direccion =p5.get(Textfield.class, "Dirección").getText();
 		String email =p5.get(Textfield.class, "Email").getText();
-		String contraseña =p5.get(Textfield.class, "Contraseña").getText();
+		String contrase�a =p5.get(Textfield.class, "Contraseña").getText();
 
 		if (primer == false) {
-			Usuario us = new Usuario(nombre, apellido, ciudad, direccion, email, contraseña, 0);
+			Usuario us = new Usuario(nombre, apellido, ciudad, direccion, email, contrase�a, 0);
 
 			usuarios.add(us);
 			primer = true;
@@ -98,7 +98,7 @@ public class Registrar extends Pantalla{
 				Boolean emailC = email.equals(usuarios.get(i).getEmail());
 				System.out.println(email);
 				System.out.println(usuarios.get(i).getEmail());
-				Boolean contras = contraseña.equals(usuarios.get(i).getContraseña());
+				Boolean contras = contrase�a.equals(usuarios.get(i).getContrase�a());
 
 				if( emailC == true) {
 					new Thread (
@@ -150,7 +150,7 @@ public class Registrar extends Pantalla{
 					
 				} else {		
 
-					Usuario us = new Usuario(nombre, apellido, ciudad, direccion, email, contraseña, 0);
+					Usuario us = new Usuario(nombre, apellido, ciudad, direccion, email, contrase�a, 0);
 
 					usuarios.add(us);
 					primer = true;
