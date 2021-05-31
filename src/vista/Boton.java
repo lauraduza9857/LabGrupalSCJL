@@ -14,7 +14,7 @@ public class Boton extends Elemento{
 		this.isSum = isSum;
 		
 	}
-
+// SG
 	@Override
 	public void pintar() {
 		// TODO Auto-generated method stub

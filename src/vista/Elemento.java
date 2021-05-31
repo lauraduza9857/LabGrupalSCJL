@@ -1,3 +1,4 @@
+//SG
 package vista;
 
 import processing.core.PApplet;

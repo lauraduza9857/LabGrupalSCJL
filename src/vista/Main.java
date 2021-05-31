@@ -154,7 +154,7 @@ public class Main extends PApplet{
 				break;
 			}
 		}
-
+        //SG
 		if(pantalla == 1) {
 			pantallaAdiciones.click();
 
