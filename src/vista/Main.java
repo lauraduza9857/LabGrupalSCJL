@@ -10,23 +10,32 @@ public class Main extends PApplet{
 		// TODO Auto-generated method stub
 		PApplet.main(Main.class.getName());
 	}
-		
+
 	Registrar regis;
 	Menu pantallaMenu;
 	Check pantallaCheck;
 	Adiciones pantallaAdiciones;
 	Producto producto;
 	static ArrayList<Producto> adiciones;
+	private ArrayList<Usuario> usuarios;
+	public ArrayList<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(ArrayList<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
 	Orden pantallaOrden;
 	int pantalla;
 	historial pantallaHISTORIA;
-	
+
 	boolean counter = false;
-	
+
 	public void settings() {
 		size(375, 667);
 	}
-	
+
 	public void setup() {
 		pantalla = 6;
 		regis=new Registrar(this,0, 0, 375, 667, loadImage("./img/REGISTRARSE.png"));
@@ -37,9 +46,9 @@ public class Main extends PApplet{
 		pantallaHISTORIA = new historial(this, 0, 0, 375, 667,  loadImage("./img/historial.jpg"));
 		adiciones = new ArrayList<Producto>();
 	}
-	
+
 	public void draw() {
-System.out.println(mouseX);
+
 		if(pantalla==0) {
 			regis.hideP5();
 			pantallaMenu.pintar();
@@ -68,10 +77,11 @@ System.out.println(mouseX);
 		if(pantalla == 6) {
 			regis.mostrarP5();
 			regis.pintar();
+
 		}
-		
+
 	}
-	
+
 	public void mouseClicked() {
 		if(pantalla == 0) {
 			pantallaMenu.click();
@@ -81,13 +91,13 @@ System.out.println(mouseX);
 				pantallaOrden.setProducto(producto);
 				pantalla = 1;
 				break;
-				
+
 			case 2:
 				producto = new Producto("Pizza del pacifico", 19, 1,1);
 				pantallaOrden.setProducto(producto);
 				pantalla = 1;
 				break;
-				
+
 			case 3:
 				producto = new Producto("Pizza clasica", 12, 1,1);
 				pantallaOrden.setProducto(producto);
@@ -98,10 +108,10 @@ System.out.println(mouseX);
 				break;
 			}
 		}
-		
+
 		if(pantalla == 1) {
 			pantallaAdiciones.click();
-			
+
 			if(pantallaAdiciones.agregar.isSeleccionado()) {
 				pantallaAdiciones.ponerAdiciones();
 				pantallaOrden.setAdiciones(adiciones);
@@ -109,36 +119,41 @@ System.out.println(mouseX);
 				pantalla = 2;
 			}
 		} else
-		if (pantalla == 2) {
-			pantallaOrden.click();
-			pantalla = pantallaOrden.getPantalla();					
-		}else
-		
-		if (pantalla == 3) {
-			pantallaCheck.click();
-			pantalla = pantallaCheck.getPantalla();
-			counter = true;
-			if (counter) {
-				pantallaOrden.counter();
-			}
-		}	
-		
-		
+			if (pantalla == 2) {
+				pantallaOrden.click();
+				pantalla = pantallaOrden.getPantalla();					
+			}else
+
+				if (pantalla == 3) {
+					pantallaCheck.click();
+					pantalla = pantallaCheck.getPantalla();
+					counter = true;
+					if (counter) {
+						pantallaOrden.counter();
+					}
+				}else
+					if(pantalla == 6){
+						regis.click();
+						pantalla =regis.getPantalla();
+						setUsuarios(regis.getUsuarios());
+					} 
+
+
 		if (mouseX > 200 && mouseX <  250 && mouseY > 610 && mouseY < 660) {
 			pantalla = 5;
-			
+
 		}
 		if ((mouseX > 120 && mouseX <  190 && mouseY > 610 && mouseY < 660)&&counter==true) {
 			pantalla = 4;
-			
+
 		}
 		if ((mouseX > 45 && mouseX <  110 && mouseY > 610 && mouseY < 660)&&counter==true) {
 			pantalla = 0;
-			
+
 		}
-		
+
 	}
-	
+
 	public static void addAdiciones(Producto product) {
 		adiciones.add(product);
 	}

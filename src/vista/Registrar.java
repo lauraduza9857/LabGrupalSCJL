@@ -1,15 +1,36 @@
 package vista;
 
+import java.util.ArrayList;
+
 import org.xml.sax.InputSource;
 
 import controlP5.ControlP5;
+import controlP5.Textfield;
 import processing.core.PApplet;
 import processing.core.PImage;
 
 public class Registrar extends Pantalla{
 	
 	private ControlP5 p5;
+	private ArrayList<Usuario> usuarios;
 	private String[] input;
+	private int pantalla = 6;
+
+	public ArrayList<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(ArrayList<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public int getPantalla() {
+		return pantalla;
+	}
+
+	public void setPantalla(int pantalla) {
+		this.pantalla = pantalla;
+	}
 
 	public Registrar(PApplet app, int x, int y, int sizeX, int sizeY, PImage img) {
 		super(app, x, y, sizeX, sizeY, img);
@@ -51,7 +72,25 @@ public class Registrar extends Pantalla{
 
 	}
 	
+	public void registrarUser() {
+String nombre =p5.get(Textfield.class, "Nombre").getText();
+String apellido =p5.get(Textfield.class, "Apellido").getText();
+String ciudad =p5.get(Textfield.class, "Ciudad").getText();
+String direccion =p5.get(Textfield.class, "Dirección").getText();
+String email =p5.get(Textfield.class, "Email").getText();
+String contraseña =p5.get(Textfield.class, "Contraseña").getText();
+
+Usuario us = new Usuario(nombre, apellido, ciudad, direccion, email, contraseña, 0);
 	
+usuarios.add(us);
+
+for (int i = 0; i < usuarios.size(); i++) {
+	if (usuarios.get(i).getEmail().equals(us.getEmail())) {
+		usuarios.get(i).setPos(i);
+	}
+}
+
+	}
 	
 	
 	public void mostrarP5(){
@@ -68,7 +107,10 @@ public class Registrar extends Pantalla{
 
 	@Override
 	public void click() {
-		// TODO Auto-generated method stub
+		if (this.app.mouseX > 107 && this.app.mouseX <  257 && this.app.mouseY > 542 && this.app.mouseY < 581) {
+			registrarUser();
+			pantalla = 7;
+		}
 		
 	}
 
