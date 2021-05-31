@@ -16,6 +16,7 @@ public class Main extends PApplet{
 	Check pantallaCheck;
 	Adiciones pantallaAdiciones;
 	Producto producto;
+	Login login;
 	static ArrayList<Producto> adiciones;
 	private ArrayList<Usuario> usuarios;
 	public ArrayList<Usuario> getUsuarios() {
@@ -39,6 +40,7 @@ public class Main extends PApplet{
 	public void setup() {
 		pantalla = 6;
 		regis=new Registrar(this,0, 0, 375, 667, loadImage("./img/REGISTRARSE.png"));
+		login = new Login(this, 0, 0, 375, 667, loadImage("./img/PANTALLA_INICIO.png"));
 		pantallaMenu = new Menu(this, 0, 0, 375, 667, loadImage("./img/Menu.png"));
 		pantallaAdiciones = new Adiciones(this, 0, 0, 375, 667, loadImage("./img/Adiciones.png"));
 		pantallaOrden = new Orden(this, 0, 0, 375, 667,  loadImage("./img/Pago.jpeg"), null, null);
@@ -78,6 +80,9 @@ public class Main extends PApplet{
 			regis.mostrarP5();
 			regis.pintar();
 
+		}
+		if (pantalla == 7) {
+			login.pintar();
 		}
 
 	}

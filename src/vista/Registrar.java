@@ -36,6 +36,8 @@ public class Registrar extends Pantalla{
 		super(app, x, y, sizeX, sizeY, img);
 	p5 = new ControlP5(app);
 	
+	usuarios = new ArrayList<>();
+	
 	input = new String [6];	
 	input [0] = "Nombre";
 	input [1] = "Apellido";
@@ -54,19 +56,19 @@ public class Registrar extends Pantalla{
 	.setColorBackground(app.color(255,255,255)).setColorActive(app.color(0)).setColorValueLabel(app.color(0))
 	.setFont(app.createFont("Arial", 20));
 	
-	p5.addTextfield(input[2]).setPosition((app.width/2-126),223).setSize(252,38).setAutoClear(true)
+	p5.addTextfield(input[2]).setPosition((app.width/2-126),239).setSize(252,38).setAutoClear(true)
 	.setColorBackground(app.color(255,255,255)).setColorActive(app.color(0)).setColorValueLabel(app.color(0))
 	.setFont(app.createFont("Arial", 20));
 	
-	p5.addTextfield(input[3]).setPosition((app.width/2-126),283).setSize(252,38).setAutoClear(true)
+	p5.addTextfield(input[3]).setPosition((app.width/2-126),307).setSize(252,38).setAutoClear(true)
 	.setColorBackground(app.color(255,255,255)).setColorActive(app.color(0)).setColorValueLabel(app.color(0))
 	.setFont(app.createFont("Arial", 20));
 	
-	p5.addTextfield(input[4]).setPosition((app.width/2-126),343).setSize(252,38).setAutoClear(true)
+	p5.addTextfield(input[4]).setPosition((app.width/2-126),375).setSize(252,38).setAutoClear(true)
 	.setColorBackground(app.color(255,255,255)).setColorActive(app.color(0)).setColorValueLabel(app.color(0))
 	.setFont(app.createFont("Arial", 20));
 	
-	p5.addTextfield(input[5]).setPosition((app.width/2-126),403).setSize(252,38).setAutoClear(true)
+	p5.addTextfield(input[5]).setPosition((app.width/2-126),443).setSize(252,38).setAutoClear(true)
 	.setColorBackground(app.color(255,255,255)).setColorActive(app.color(0)).setColorValueLabel(app.color(0))
 	.setFont(app.createFont("Arial", 20)).setPasswordMode(true);
 
@@ -87,6 +89,8 @@ usuarios.add(us);
 for (int i = 0; i < usuarios.size(); i++) {
 	if (usuarios.get(i).getEmail().equals(us.getEmail())) {
 		usuarios.get(i).setPos(i);
+		System.out.println("el usuario es: "+usuarios.get(i).getEmail()+" y la contraseña es: "+ usuarios.get(i).getContraseña()
+				+"pos: "+ usuarios.get(i).getPos());
 	}
 }
 
@@ -109,7 +113,8 @@ for (int i = 0; i < usuarios.size(); i++) {
 	public void click() {
 		if (this.app.mouseX > 107 && this.app.mouseX <  257 && this.app.mouseY > 542 && this.app.mouseY < 581) {
 			registrarUser();
-			pantalla = 7;
+			
+			//pantalla = 7;
 		}
 		
 	}
