@@ -17,6 +17,7 @@ public class Main extends PApplet{
 	Adiciones pantallaAdiciones;
 	Producto producto;
 	Login login;
+	Boolean p5;
 	static ArrayList<Producto> adiciones;
 	private ArrayList<Usuario> usuarios;
 	public ArrayList<Usuario> getUsuarios() {
@@ -38,6 +39,7 @@ public class Main extends PApplet{
 	}
 
 	public void setup() {
+		p5 = false;
 		pantalla = 6;
 		regis=new Registrar(this,0, 0, 375, 667, loadImage("./img/REGISTRARSE.png"));
 		login = new Login(this, 0, 0, 375, 667, loadImage("./img/PANTALLA_INICIO.png"));
@@ -52,36 +54,75 @@ public class Main extends PApplet{
 	public void draw() {
 
 		if(pantalla==0) {
-			regis.hideP5();
+			if( !p5) {
+				regis.hideP5();
+				login.hideP5();
+				p5 = true;
+			}
 			pantallaMenu.pintar();
 		}
 		if(pantalla==1) {
-			regis.hideP5();
+			if( !p5) {
+				regis.hideP5();
+				login.hideP5();
+				p5 = true;
+			}
 			pantallaAdiciones.pintar();
 		}
 		if(pantalla==2) {
-			regis.hideP5();
+			if( !p5) {
+				regis.hideP5();
+				login.hideP5();
+				p5 = true;
+			}
 			pantallaOrden.pintar();
+			text(usuarios.get(0).getNombre() + " "+ usuarios.get(0).getApellido(),150,350);
 		}
 		if(pantalla == 3) {
-			regis.hideP5();
+			if( !p5) {
+				regis.hideP5();
+				login.hideP5();
+				p5 = true;
+			}
 			pantallaCheck.pintar();
 		}
 		if (pantalla == 4) {
-			regis.hideP5();
+			if( !p5) {
+				regis.hideP5();
+				login.hideP5();
+				p5 = true;
+			}
 			pantallaOrden.setPantalla(pantalla);
 			pantallaOrden.pintar();
 		}
 		if(pantalla == 5) {
-			regis.hideP5();
+			if( !p5) {
+				regis.hideP5();
+				login.hideP5();
+				p5 = true;
+			}
 			pantallaHISTORIA.pintar();
 		}
 		if(pantalla == 6) {
-			regis.mostrarP5();
+			
+			
+			
+			if( !p5) {
+				regis.mostrarP5();
+				login.hideP5();
+				p5 = true;
+			}
+			
 			regis.pintar();
 
 		}
 		if (pantalla == 7) {
+			if( !p5) {
+				login.mostrarP5();
+				regis.hideP5();
+				p5 = true;
+			}
+			login.setUsuarios(usuarios);
 			login.pintar();
 		}
 
@@ -139,9 +180,16 @@ public class Main extends PApplet{
 				}else
 					if(pantalla == 6){
 						regis.click();
+						p5 = regis.getPj5();
+						
 						pantalla =regis.getPantalla();
 						setUsuarios(regis.getUsuarios());
-					} 
+					} else 
+						if (pantalla == 7){
+							login.click();
+							p5 = login.getPj5();
+							pantalla = login.getPantalla();
+						} 
 
 
 		if (mouseX > 200 && mouseX <  250 && mouseY > 610 && mouseY < 660) {
